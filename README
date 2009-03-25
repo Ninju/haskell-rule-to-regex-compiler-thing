@@ -1,0 +1,23 @@
+Rules
+
+• “A” in the pattern must equal an alpha character
+  o any alpha character [A-Z]
+  o NOT case sensitive
+• “#” in the pattern must equal a numeric character (0-9) 
+• “@” in the pattern must equal an alphanumeric character
+  o (A-Z, 0 -9, NOT case sensitive)
+• “_” in the pattern must match a space, hyphen or underscore (Per Woody)
+• “?” in the pattern equals any character
+  o A-Z
+  o 0-9
+  o Special characters
+  o NOT case sensitive
+
+Test Patterns
+
+AAAA
+AAA_#####
+AAA_#######_##
+A####_@@
+??_AAA#A_#
+@@@@_####_????
