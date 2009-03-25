@@ -1,8 +1,8 @@
 module PatternParser (parsePattern) where
 
-type Flags = String
+type Flag = Char
 type RegexPattern = String
-data Regex = Regex RegexPattern Flags
+data Regex = Regex RegexPattern [Flag]
 
 instance Show Regex where
   show (Regex content flags) = "/" ++ content ++ "/" ++ flags
