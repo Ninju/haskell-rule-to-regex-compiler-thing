@@ -1,4 +1,8 @@
-These were the rules some guy said he had to use, so that's what I've implemented. It could be extended easily however.
+These were the rules some guy said he had to use, so that's what I've implemented. It could be extended easily however. 
+
+If you want a code comparison (different language), check out Abica's JS version: http://github.com/Abica/js-rule-to-regex-compiler-thing/tree/master
+
+He also explains what it does using fancy words and such, basically though, someone was saying that it is impossible to make one of these "things" that also shortens stuff like [A-Za-z][A-Za-z][A-Za-z] to [A-Za-z]{3,3}. He also seemed to refuse to accept that he could add an 'i' flag on his regex (and shorted [A-Za-z] to [a-z] or [A-Z]) since none of his rules cared about case sensitivity
 
 Rules
 
