@@ -1,18 +1,18 @@
 module PatternParser (parsePattern) where
 
-type Flags = String
+type Flag = Char
 type RegexPattern = String
-data Regex = Regex RegexPattern Flags
+data Regex = Regex RegexPattern [Flag]
 
 instance Show Regex where
   show (Regex content flags) = "/" ++ content ++ "/" ++ flags
 
 parsePattern :: String -> Regex
-parsePattern xs = Regex (parsePatternChars xs) "gi"
+parsePattern xs = Regex (parsePattern' xs) "gi"
 
-parsePatternChars :: String -> RegexPattern
-parsePatternChars []     = ""
-parsePatternChars (x:xs) = regexPattern ++ parsePatternChars rest
+parsePattern' :: String -> RegexPattern
+parsePattern' []     = ""
+parsePattern' (x:xs) = regexPattern ++ parsePattern' rest
                            where
                            (matches, rest) = span (x==) xs
                            regexPattern = reducedRegexPattern (parsePatternChar x) (length matches + 1)
@@ -29,5 +29,3 @@ parsePatternChar c = case c of
 reducedRegexPattern :: RegexPattern -> Int -> RegexPattern
 reducedRegexPattern regexPattern 1 = regexPattern
 reducedRegexPattern regexPattern n = regexPattern ++ "{" ++ show n ++ "," ++ show n ++ "}"
-
-
